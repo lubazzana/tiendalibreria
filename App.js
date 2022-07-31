@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator } from "react-native";
+import React from "react";
+import Root from "./src/index";
+import { useFonts } from "expo-font";
 
 export default function App() {
+  const [loaded] = useFonts({
+    'Montserrat-Black': require('./assets/fonts/Montserrat-Black.ttf'),
+    'Montserrat-Bold': require('./assets/fonts/Montserrat-Bold.ttf'),
+    'Montserrat-ExtraBold': require('./assets/fonts/Montserrat-ExtraBold.ttf'),
+    'Montserrat-ExtraLight': require('./assets/fonts/Montserrat-ExtraLight.ttf'),
+    'Montserrat-Light': require('./assets/fonts/Montserrat-Light.ttf'),
+    'Montserrat-Medium': require('./assets/fonts/Montserrat-Medium.ttf'),
+    'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.ttf'),
+    'Montserrat-SemiBold': require('./assets/fonts/Montserrat-SemiBold.ttf'),
+    'Montserrat-Thin': require('./assets/fonts/Montserrat-Thin.ttf'),
+  });
+
+  if (!loaded) {
+    return <ActivityIndicator />
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Root />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
