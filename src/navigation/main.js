@@ -44,9 +44,9 @@ const MainNavigator = () => {
             <Stack.Screen 
                 name="ProductDetails" 
                 component={ProductDetailsScreen} 
-                options={{
-                    title: 'Detalle',
-                }}
+                options={({ route }) => ({
+                    title: route.params.title,
+                })}
             />
         </Stack.Navigator>
     )

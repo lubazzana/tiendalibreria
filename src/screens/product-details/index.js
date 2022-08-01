@@ -1,16 +1,25 @@
 import { Button, Text, View } from "react-native";
 
 import React from "react";
+import { products } from "../../data/products";
 import { styles } from "./styles";
 
-const ProductDetailsScreen = ({ navigation }) => {
+const ProductDetailsScreen = ({ route, navigation }) => {
+    const { productId } = route.params;
+    const product = products.find(product => product.id === productId);
+
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Product Details Screen</Text>
-            <Button 
-                title="Ir al inicio" 
-                onPress={() => navigation.navigate('Categories')} 
-            />
+            <View style={styles.details}>
+                <Text style={styles.text}>{product.title}</Text>
+                <Text style={styles.text}>{product.author}</Text>
+                <Text style={styles.text}>{product.description}</Text>
+                <Text style={styles.text}>ARS {product.price}</Text>
+                <Button 
+                    title="Ir al inicio" 
+                    onPress={() => navigation.navigate('Categories')} 
+                />
+            </View>
         </View>
     )
 }

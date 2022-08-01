@@ -1,14 +1,22 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+const { height, width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
         backgroundColor: '#ffffff',
+        justifyContent: 'center'
+    },
+    details: {
+        height: height / 2,
+        justifyContent: 'space-around',
+        alignItems: 'center'
     },
     text: {
-        fontFamily: 'Montserrat-Bold',
-        fontSize: 20,
+        fontFamily: 'Montserrat-Regular',
+        fontSize: 16,
+        textAlign: 'center'
     }
 })
