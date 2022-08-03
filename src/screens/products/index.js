@@ -2,13 +2,15 @@ import { FlatList, View } from "react-native";
 
 import { ProductItem } from "../../components/index";
 import React from "react";
-import { products } from "../../data/products";
 import { styles } from "./styles";
+import { useSelector } from "react-redux";
 
 const ProductsScreen = ({ navigation, route }) => {
+    const products = useSelector((state) => state.product.products);
+    const filteredProducts = useSelector((state) => state.product.filteredProducts);
+    const productSelected = useSelector((state) => state.product.selected);
+    
     const { categoryId } = route.params;
-
-    const filteredProducts = products.filter((product) => product.categoryId === categoryId);
 
     const onSelected = (item) => {
         navigation.navigate("ProductDetails", {productId: item.id, title: item.title})
