@@ -7,7 +7,7 @@ const CategoryItem = ({ item, onSelected }) => {
     return(
         <View style={styles.container}>
             <TouchableOpacity 
-                style={{ ...styles.containerTouchable, backgroundColor: item.color}}
+                style={{ ...styles.containerTouchable}}
                 onPress={() => onSelected(item)}
             >
                 <View>
