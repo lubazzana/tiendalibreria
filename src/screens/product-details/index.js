@@ -16,20 +16,24 @@ const ProductDetailsScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.details}>
-                <Text style={styles.text}>{product.title}</Text>
-                <Text style={styles.text}>{product.author}</Text>
-                <Text style={styles.text}>{product.description}</Text>
-                <Text style={styles.text}>ARS {product.price}</Text>
-                <Button 
-                    title="Añadir al carrito" 
-                    onPress={() => onHandlerAddToCart()}
-                    color={colors.primary}
-                />
-                <Button 
-                    title="Ir al inicio" 
-                    onPress={() => navigation.navigate('Categories')}
-                    color={colors.tertiary} 
-                />
+                <Text style={styles.title}>{product.title}</Text>
+                <Text style={styles.author}>{product.author}</Text>
+                <Text style={styles.description}>{product.description}</Text>
+                <Text style={styles.price}>ARS {product.price}</Text>
+                <View style={styles.button}>
+                    <Button 
+                        title="Añadir al carrito" 
+                        onPress={() => onHandlerAddToCart()}
+                        color={colors.primary}
+                    />
+                </View>
+                <View style={styles.button}>
+                    <Button 
+                        title="Ir al inicio" 
+                        onPress={() => navigation.navigate('Categories')}
+                        color={colors.tertiary} 
+                    />
+                </View>
             </View>
         </View>
     )
