@@ -10,7 +10,8 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.primary
     },
     container: {
-        width: '85%',
+        height:320,
+        width: '80%',
         maxWidth: 500,
         padding: 25,
         margin: 15,
@@ -24,19 +25,6 @@ export const styles = StyleSheet.create({
         shadowRadius: 15,
         elevation: 5,
         backgroundColor: colors.white
-    },
-    label: {
-        fontSize: fonts.fontSize.small,
-        fontFamily: fonts.fontFamily.bold,
-        color: colors.primary,
-    },
-    input: {
-        height: 40,
-        borderBottomColor: colors.primary,
-        borderBottomWidth: 1,
-        width: '90%',
-        fontFamily: fonts.fontFamily.light,
-        marginBottom: 20,
     },
     title: {
         fontFamily: fonts.fontFamily.extraBold,

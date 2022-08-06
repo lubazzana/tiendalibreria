@@ -1,7 +1,8 @@
-import { Button, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Button, KeyboardAvoidingView, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 import { signin, signup } from "../../store/actions/auth.action";
 
+import { Input } from "../../components/index";
 import { colors } from "../../constants/themes/colors";
 import { styles } from "./styles";
 import { useDispatch } from "react-redux";
@@ -42,9 +43,7 @@ const AuthScreen = () => {
         <KeyboardAvoidingView style={styles.containerKeyboard} behavior='height'>
             <Text style={styles.title}>{title}</Text>
             <View style={styles.container}>
-                <Text style={styles.label}>Email</Text>
-                <TextInput 
-                    style={styles.input}
+                <Input 
                     placeholder='nombre@gmail.com'
                     placeholderTextColor={colors.text}
                     autoCapitalize='none'
@@ -52,10 +51,9 @@ const AuthScreen = () => {
                     keyboardType='email-address'
                     onChangeText={(text) => onHandleChange(text, 'email')}
                     value={email}
+                    label='Email'
                 />
-                <Text style={styles.label}>Contraseña</Text>
-                <TextInput 
-                    style={styles.input}
+                <Input 
                     placeholder='********'
                     placeholderTextColor={colors.text}
                     autoCapitalize='none'
@@ -63,6 +61,7 @@ const AuthScreen = () => {
                     secureTextEntry={true}
                     onChangeText={(text) => onHandleChange(text, 'password')}
                     value={password}
+                    label='Contraseña'
                 />
                 <Button 
                     title={titleButton}

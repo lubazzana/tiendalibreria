@@ -19,7 +19,6 @@ export const signup = (email, password) => {
                 }),
             });
             const data = await response.json();
-            console.log('data Firebase', data);
             dispatch({
                 type: SIGN_UP,
                 token: data.idToken,
@@ -46,7 +45,6 @@ export const signin = (email, password) => {
                 }),
             });
             const data = await response.json();
-            console.log('data Firebase', data);
             dispatch({
                 type: SIGN_IN,
                 token: data.idToken,
