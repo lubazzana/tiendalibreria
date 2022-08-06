@@ -1,6 +1,6 @@
 import { authTypes } from "../types/auth.types";
 
-const { SIGN_UP } = authTypes;
+const { SIGN_UP, SIGN_IN } = authTypes;
 
 const initialState = {
     token: null,
@@ -16,6 +16,13 @@ const authReducer = (state = initialState, action) => {
                 userId: action.userId,
             }
     
+        case SIGN_IN:
+            return {
+                ...state,
+                token: action.token,
+                userId: action.userId,
+            }
+        
         default:
             return state;
     }

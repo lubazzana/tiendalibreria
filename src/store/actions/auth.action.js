@@ -1,7 +1,8 @@
-import { URL_AUTH_SIGN_UP } from "../../constants/database/firebase";
+import { URL_AUTH_SIGN_IN, URL_AUTH_SIGN_UP } from "../../constants/database/firebase";
+
 import { authTypes } from "../types/auth.types";
 
-const { SIGN_IN, SIGN_OUT, SIGN_UP } = authTypes;
+const { SIGN_IN, SIGN_UP } = authTypes;
 
 export const signup = (email, password) => {
     return async dispatch => {
@@ -21,6 +22,33 @@ export const signup = (email, password) => {
             console.log('data Firebase', data);
             dispatch({
                 type: SIGN_UP,
+                token: data.idToken,
+                userId: data.localId,
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+export const signin = (email, password) => {
+    return async dispatch => {
+        try {
+            const response = await fetch(URL_AUTH_SIGN_IN, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                    returnSecureToken: true
+                }),
+            });
+            const data = await response.json();
+            console.log('data Firebase', data);
+            dispatch({
+                type: SIGN_IN,
                 token: data.idToken,
                 userId: data.localId,
             })
