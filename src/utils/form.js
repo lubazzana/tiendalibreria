@@ -1,5 +1,6 @@
 const formatEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const minPasswordLength = 6;
+const minUserNameLength = 4;
 
 export const UPDATED_FORM = "UPDATED_FORM";
 
@@ -33,6 +34,18 @@ export const validateInput = (name, value) => {
                 error = '';
             }
             break;
+        
+        case 'userProfileName':
+            if(value === ''){
+                hasError = true;
+                error = 'Debes ingresar tu nombre'
+            } else if(value.length < minUserNameLength){
+                hasError = true;
+                error = `Debe tener al menos ${minUserNameLength} caracteres`;
+            } else {
+                hasError = false;
+                error = '';
+            }
     
         default:
             break;

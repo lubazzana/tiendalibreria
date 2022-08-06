@@ -4,9 +4,11 @@ import MainNavigator from "./main";
 import OrdersNavigator from "./orders";
 import React from "react";
 import { Text } from "react-native";
+import UserProfileNavigator from "./user";
 import { colors } from "../constants/themes/colors";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { fonts } from "../constants/themes/fonts";
+import { useSelector } from "react-redux";
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -35,48 +37,62 @@ const TabNavigator = () => {
             tabBarInactiveTintColor: colors.white,
         }}
         >
-        <BottomTabs.Screen
-            name="ShopTab"
-            component={MainNavigator}
-            options={{
-            tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Tienda"}),
-            tabBarIcon: ({ focused }) => (
-                <IonicIcons
-                    name={focused ? "home" : "home-outline"}
-                    size={24}
-                    color={focused ? colors.secondary : colors.white}
-                />
-            ),
-            }}
-        />
-        <BottomTabs.Screen
-            name="CartTab"
-            component={CartNavigator}
-            options={{
-            tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Carrito"}),
-            tabBarIcon: ({ focused }) => (
-                <IonicIcons
-                    name={focused ? "cart" : "cart-outline"}
-                    size={24}
-                    color={focused ? colors.secondary : colors.white}
-                />
-            ),
-            }}
-        />
-        <BottomTabs.Screen
-            name="OrdersTab"
-            component={OrdersNavigator}
-            options={{
-            tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Órdenes"}),
-            tabBarIcon: ({ focused }) => (
-                <IonicIcons
-                    name={focused ? "document-text" : "document-text-outline"}
-                    size={24}
-                    color={focused ? colors.secondary : colors.white}
-                />
-            ),
-            }}
-        />
+            <BottomTabs.Screen
+                name="ShopTab"
+                component={MainNavigator}
+                options={{
+                tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Tienda"}),
+                tabBarIcon: ({ focused }) => (
+                    <IonicIcons
+                        name={focused ? "home" : "home-outline"}
+                        size={24}
+                        color={focused ? colors.secondary : colors.white}
+                    />
+                ),
+                }}
+            />
+            <BottomTabs.Screen
+                name="CartTab"
+                component={CartNavigator}
+                options={{
+                tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Carrito"}),
+                tabBarIcon: ({ focused }) => (
+                    <IonicIcons
+                        name={focused ? "cart" : "cart-outline"}
+                        size={24}
+                        color={focused ? colors.secondary : colors.white}
+                    />
+                ),
+                }}
+            />
+            <BottomTabs.Screen
+                name="OrdersTab"
+                component={OrdersNavigator}
+                options={{
+                tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Órdenes"}),
+                tabBarIcon: ({ focused }) => (
+                    <IonicIcons
+                        name={focused ? "document-text" : "document-text-outline"}
+                        size={24}
+                        color={focused ? colors.secondary : colors.white}
+                    />
+                ),
+                }}
+            />
+            <BottomTabs.Screen
+                name="UserProfileTab"
+                component={UserProfileNavigator}
+                options={{
+                tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Mi perfil"}),
+                tabBarIcon: ({ focused }) => (
+                    <IonicIcons
+                        name={focused ? "person-circle" : "person-circle-outline"}
+                        size={24}
+                        color={focused ? colors.secondary : colors.white}
+                    />
+                ),
+                }}
+            />
         </BottomTabs.Navigator>
     );
 };

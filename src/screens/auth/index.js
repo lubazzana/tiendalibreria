@@ -46,10 +46,6 @@ const AuthScreen = () => {
     const titleButton = isLogin ? 'Ingresar' : 'Crear cuenta';
 
     const onHandlerAuth = () => {
-        // dispatch(isLogin ? 
-        //     signin(email, password)
-        //     : signup(email, password)
-        // );
         if(isLogin) {
             if(formState.email.hasError === false && formState.password.hasError === false) {
                 dispatch(signin(formState.email.value, formState.password.value))
