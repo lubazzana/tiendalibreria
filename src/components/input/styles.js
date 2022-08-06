@@ -7,11 +7,19 @@ export const styles = StyleSheet.create({
         flex: 1,
     },
     input: {
-        height: 40,
+        height: 35,
         borderBottomColor: colors.primary,
         borderBottomWidth: 1,
         width: '90%',
-        fontFamily: fonts.fontFamily.light,
-        marginBottom: 5,
+        fontFamily: fonts.fontFamily.regular,
+        fontSize: fonts.fontSize.small,
     },
+    message: {
+        marginVertical: 5,
+    },
+    helperText: {
+        fontFamily: fonts.fontFamily.semiBold,
+        fontSize: fonts.fontSize.xSmall,
+        color: colors.red
+    }
 })

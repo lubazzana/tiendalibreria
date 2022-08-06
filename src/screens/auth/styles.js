@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginVertical: 20
+        marginVertical: 15
     },
     promptMessage: {
         fontFamily: fonts.fontFamily.regular,
@@ -49,5 +49,10 @@ export const styles = StyleSheet.create({
         fontSize: fonts.fontSize.small,
         color: colors.primary,
         textAlign: 'center',
+    },
+    error: {
+        color: colors.red,
+        fontFamily: fonts.fontFamily.medium,
+        fontSize: fonts.fontSize.medium
     }
 })
