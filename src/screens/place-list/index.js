@@ -1,13 +1,19 @@
 import { Button, FlatList, Text, View } from "react-native";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { PlaceItem } from "../../components/index";
-import React from "react";
 import { colors } from "../../constants/themes/colors";
+import { loadAddress } from "../../store/actions/places.action";
 import { styles } from "./styles";
-import { useSelector } from "react-redux";
 
 const PlaceListScreen = ({ navigation }) => {
+    const dispatch = useDispatch();
     const places = useSelector((state) => state.places.places);
+
+    useEffect(() => {
+        dispatch(loadAddress())
+    }, [])
 
     const onSelectPlace = (id) => {
         navigation.navigate("PlaceDetail", { placeId: id });
@@ -16,26 +22,19 @@ const PlaceListScreen = ({ navigation }) => {
         <PlaceItem {...item} onSelect={onSelectPlace} />
     )
 
-    const ListEmptyComponent = ({ navigation }) => (
+    const ListEmptyComponent = () => (
         <View style={styles.emptyContainer}>
         <Text>No hay lugares disponibles</Text>
         </View>
     )
     return (
-        <View>
         <FlatList 
-        style={styles.container}
-        data={places}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={renderItem}
-        ListEmptyComponent={ListEmptyComponent}
+            style={styles.container}
+            data={places}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={renderItem}
+            ListEmptyComponent={ListEmptyComponent}
         />
-        {/* <Button 
-            title="Ir al inicio" 
-            onPress={() => navigation.navigate('New')}
-            color={colors.tertiary} 
-        /> */}
-        </View>
     )
 }
 

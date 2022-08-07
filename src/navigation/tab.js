@@ -84,10 +84,10 @@ const TabNavigator = () => {
                 name="PlacesTab"
                 component={PlaceNavigator}
                 options={{
-                tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Mis direcciones"}),
+                tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Direcciones"}),
                 tabBarIcon: ({ focused }) => (
                     <IonicIcons
-                        name={focused ? "person-circle" : "person-circle-outline"}
+                        name={focused ? "location" : "location-outline"}
                         size={24}
                         color={focused ? colors.secondary : colors.white}
                     />

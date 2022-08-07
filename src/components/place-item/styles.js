@@ -1,11 +1,13 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../../constants/themes/colors";
+import {fonts} from '../../constants/themes/fonts';
 
 export const styles = StyleSheet.create({
     container: {
-        borderBottomColor: colors.primary,
+        borderBottomColor: colors.secondary,
         borderBottomWidth: 1,
         padding: 20,
+        margin: 10,
         flexDirection: "row",
         alignItems: "center"
     },
@@ -22,12 +24,14 @@ export const styles = StyleSheet.create({
         alignItems: "flex-start"
     },
     title: {
-        fontSize: 16,
-        color: colors.text,
-        marginBottom: 10
+        fontSize: fonts.fontSize.medium,
+        fontFamily: fonts.fontFamily.bold,
+        color: colors.primary,
+        marginBottom: 15
     },
     address: {
-        fontSize: 14,
-        color: colors.primary
+        fontSize: fonts.fontSize.small,
+        fontFamily: fonts.fontFamily.regular,
+        color: colors.text
     }
 })

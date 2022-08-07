@@ -2,8 +2,17 @@ import { ActivityIndicator } from "react-native";
 import { Provider } from "react-redux";
 import React from "react";
 import Root from "./src/index";
+import { init } from "./src/data/db";
 import store from "./src/store";
 import { useFonts } from "expo-font";
+
+init()
+.then(() => {
+  console.log('Base de datos inicializada');
+})
+.catch((err) => {
+  console.log('Error al inicializar la base de datos', err);
+})
 
 export default function App() {
   const [loaded] = useFonts({

@@ -1,4 +1,5 @@
-import { ADD_PLACE } from "../actions/places.action"
+import { ADD_PLACE, LOAD_ADDRESS } from "../actions/places.action"
+
 import Place from "../../models/Place";
 
 const initialState = {
@@ -18,6 +19,18 @@ const placesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 places: state.places.concat(newPlace)
+            }
+
+        case LOAD_ADDRESS:
+            return {
+                ...state,
+                places: action.places.map(item => new Place(
+                    item.id,
+                    item.title,
+                    item.image,
+                    item.address,
+                    item.coords
+                ))
             }
     
         default:

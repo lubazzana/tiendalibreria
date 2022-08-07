@@ -30,13 +30,13 @@ const PlaceNavigator = () => (
             name="Places"
             component={PlaceListScreen}
             options={({ navigation }) => ({ 
-                title: "Direcciones",
+                title: "Direcciones de envío",
                 headerRight: () => (
                     <TouchableOpacity onPress={() => navigation.navigate("New")}>
                         <IonicIcons
                         name="add-circle-outline"
                         size={25}
-                        color={colors.black}
+                        color={colors.white}
                         />
                     </TouchableOpacity>
                     )

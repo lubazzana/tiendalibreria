@@ -4,15 +4,15 @@ import React from "react";
 import { colors } from "../../constants/themes/colors";
 import { styles } from "./styles";
 
-const PlaceItem = ({ id, title, image, address, onSelect }) => {
+const PlaceItem = ({ title, image, address}) => {
     return (
-        <TouchableOpacity style={styles.container} onPress={() => onSelect(id)}>
+        <View style={styles.container}>
             <Image source={{ uri: image }} style={styles.image} />
             <View style={styles.info}>
                 <Text style={styles.title}>{title}</Text>
                 <Text style={styles.address}>{address}</Text>
             </View>
-        </TouchableOpacity>
+        </View>
     )
 }
 
