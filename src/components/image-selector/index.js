@@ -5,6 +5,7 @@ import { Alert, Button, Image, Text, View } from "react-native";
 import React, { useState } from "react";
 
 import { colors } from "../../constants/themes/colors";
+import { styles } from "./styles"
 
 const ImageSelector = ({ onImage }) => {
     const [pickedUrl, setPickedUrl] = useState("");

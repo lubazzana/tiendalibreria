@@ -6,3 +6,4 @@ export { default as CartScreen } from './cart/index';
 export { default as AuthScreen } from './auth/index';
 export { default as NewPlaceScreen } from './new-place/index';
 export { default as PlaceListScreen } from './place-list/index';
+export { default as MapScreen } from './map/index';

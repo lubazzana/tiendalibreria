@@ -26,11 +26,6 @@ const LabelBottomTab = ({ focused, label }) => (
 )
 
 const TabNavigator = () => {
-    const userImage = useSelector((state) => state.profile.image);
-    console.log('userImage', userImage);
-    const userName = useSelector((state) => state.profile.name);
-    console.log('userName', userName)
-
     return (
         <BottomTabs.Navigator
         initialRouteName="ShopTab"
@@ -91,11 +86,6 @@ const TabNavigator = () => {
                 options={{
                 tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Mis direcciones"}),
                 tabBarIcon: ({ focused }) => (
-                    userImage ? 
-                    <Image
-                        style={styles.image}
-                        source={{uri: userImage}}
-                    /> :
                     <IonicIcons
                         name={focused ? "person-circle" : "person-circle-outline"}
                         size={24}

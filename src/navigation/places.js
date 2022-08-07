@@ -1,7 +1,7 @@
+import { MapScreen, NewPlaceScreen, PlaceListScreen } from "../screens/index";
 import { Platform, TouchableOpacity } from "react-native";
 
-import IonicIcons from '@expo/vector-icons/Ionicons'
-import NewPlaceScreen from "../screens/new-place/index";
+import IonicIcons from '@expo/vector-icons/Ionicons';
 import React from "react";
 import { colors } from "../constants/themes/colors";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -32,31 +32,26 @@ const PlaceNavigator = () => (
             options={({ navigation }) => ({ 
                 title: "Direcciones",
                 headerRight: () => (
-                <TouchableOpacity onPress={() => navigation.navigate("NewPlace")}>
-                    <IonicIcons
-                    name="add-circle-outline"
-                    size={25}
-                    color={Platform.OS === "android" ? colors.white : colors.black}
-                    />
-                </TouchableOpacity>
-                )
-            })}
+                    <TouchableOpacity onPress={() => navigation.navigate("New")}>
+                        <IonicIcons
+                        name="add-circle-outline"
+                        size={25}
+                        color={colors.black}
+                        />
+                    </TouchableOpacity>
+                    )
+                })}
         />
-        {/* <Stack.Screen
-            name="PlaceDetail"
-            component={PlaceDetailScreen}
-            options={{ title: "Detalle de dirección" }}
-        /> */}
         <Stack.Screen
-            name="NewPlace"
+            name="New"
             component={NewPlaceScreen}
             options={{ title: "Nueva Dirección" }}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
             name="Map"
             component={MapScreen}
             options={{ title: "Mapa" }}
-        /> */}
+        />
     </Stack.Navigator>
 );
 
