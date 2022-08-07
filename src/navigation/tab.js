@@ -2,12 +2,13 @@ import CartNavigator from "./cart";
 import IonicIcons from "@expo/vector-icons/Ionicons";
 import MainNavigator from "./main";
 import OrdersNavigator from "./orders";
+import PlaceNavigator from "./places";
 import React from "react";
 import { Text } from "react-native";
-import UserProfileNavigator from "./user";
 import { colors } from "../constants/themes/colors";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { fonts } from "../constants/themes/fonts";
+import { styles } from "../components/category-item/styles";
 import { useSelector } from "react-redux";
 
 const BottomTabs = createBottomTabNavigator();
@@ -25,6 +26,11 @@ const LabelBottomTab = ({ focused, label }) => (
 )
 
 const TabNavigator = () => {
+    const userImage = useSelector((state) => state.profile.image);
+    console.log('userImage', userImage);
+    const userName = useSelector((state) => state.profile.name);
+    console.log('userName', userName)
+
     return (
         <BottomTabs.Navigator
         initialRouteName="ShopTab"
@@ -80,11 +86,16 @@ const TabNavigator = () => {
                 }}
             />
             <BottomTabs.Screen
-                name="UserProfileTab"
-                component={UserProfileNavigator}
+                name="PlacesTab"
+                component={PlaceNavigator}
                 options={{
-                tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Mi perfil"}),
+                tabBarLabel: ({ focused }) => LabelBottomTab({ focused, label: "Mis direcciones"}),
                 tabBarIcon: ({ focused }) => (
+                    userImage ? 
+                    <Image
+                        style={styles.image}
+                        source={{uri: userImage}}
+                    /> :
                     <IonicIcons
                         name={focused ? "person-circle" : "person-circle-outline"}
                         size={24}
