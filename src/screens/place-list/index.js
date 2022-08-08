@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { PlaceItem } from "../../components/index";
-import { colors } from "../../constants/themes/colors";
 import { loadAddress } from "../../store/actions/places.action";
 import { styles } from "./styles";
 
