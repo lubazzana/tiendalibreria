@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         borderRadius: 10,
         margin: 10,
-        height: 180,
+        height: 300,
     },
     containerTouchable: {
         flex: 1,
@@ -33,7 +33,8 @@ export const styles = StyleSheet.create({
         fontFamily: fonts.fontFamily.extraBold,
         fontSize: fonts.fontSize.small,
         color: colors.primary,
-        textAlign: 'center'
+        textAlign: 'center',
+        paddingTop: 10,
     },
     author: {
         fontFamily: fonts.fontFamily.regular,
@@ -47,5 +48,12 @@ export const styles = StyleSheet.create({
         fontSize: fonts.fontSize.small,
         color: colors.text,
         textAlign: 'center'
-    }
+    },
+    img: {
+        position: 'relative',
+        top: 0,
+        left: 0,
+        height: 150,
+        width: '60%',
+    },
 })
